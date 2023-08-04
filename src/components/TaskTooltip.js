@@ -75,6 +75,7 @@ const TaskTooltip = ({ isOpen, hoveredTask }) => {
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      setCoord([0, 0]);
     }
   }, [isOpen])
 
