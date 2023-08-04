@@ -1,29 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { styled } from 'styled-components';
 
-import { baseTheme } from '../theme';
+import Header from '../Header/Header';
+import Week from '../Week/Week';
+import Field from '../Field/Field';
+import Actions from '../Actions/Actions';
+import AddPopup from '../AddPopup/AddPopup';
+import TaskTooltip from '../TaskTooltip/TaskTooltip';
 
-import Header from './Header';
-import Week from './Week';
-import Field from './Field';
-import Actions from './Actions';
-import AddPopup from './AddPopup';
-import { getWeekDays } from '../utils/date';
-import TaskTooltip from './TaskTooltip';
-
-const Container = styled.div`
-  max-width: ${baseTheme.sizes.calendar}px;
-  height: 100vh;
-  max-height: 100vh;
-
-  background-color: ${baseTheme.colors.bg};
-
-  display: flex;
-  flex-direction: column;
-
-  margin: 0 auto;
-  position: relative;
-`;
+import { getWeekDays } from '../../utils/date';
+import { Container } from './CalendarStyle';
 
 const Calendar = () => {
   function handleAddTask(task) {

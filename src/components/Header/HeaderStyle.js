@@ -1,10 +1,7 @@
-import React from 'react';
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
+import { baseTheme } from "../../theme";
 
-import addIcon from '../images/add.svg';
-import { baseTheme } from '../theme';
-
-const Container = styled.div`
+export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,7 +19,7 @@ const Container = styled.div`
   }
 `;
 
-const Title = styled.h1`
+export const Title = styled.h1`
   letter-spacing: -1px;
   font-weight: 200;
 
@@ -31,7 +28,7 @@ const Title = styled.h1`
   }
 `;
 
-const AddButton = styled.button`
+export const AddButton = styled.button`
   height: 40px;
   width: 40px;
 
@@ -51,20 +48,3 @@ const AddButton = styled.button`
   }
 
 `;
-
-const Header = ({ setIsAddPopupOpen }) => {
-  function handleAddButtonClick() {
-    setIsAddPopupOpen(true);
-  }
-
-  return (
-    <Container>
-      <Title>Interview Calendar</Title>
-      <AddButton onClick={handleAddButtonClick}>
-        <img src={addIcon} alt="" />
-      </AddButton>
-    </Container>
-  );
-};
-
-export default Header;

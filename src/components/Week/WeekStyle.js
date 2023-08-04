@@ -1,15 +1,13 @@
-import React from 'react';
+
 import { styled } from 'styled-components';
-import { getMonth, getWeekNumber } from '../utils/date';
+import { baseTheme } from '../../theme';
+import arrowIcon from '../../images/arrow.svg';
 
-import arrowIcon from '../images/arrow.svg';
-import { baseTheme } from '../theme';
-
-const Container = styled.div`
+export const Container = styled.div`
   border-bottom: 1px solid ${baseTheme.colors.border};
 `;
 
-const Days = styled.div`
+export const Days = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   justify-items: center;
@@ -29,7 +27,7 @@ const Days = styled.div`
   }
 `;
 
-const WeekDay = styled.div`
+export const WeekDay = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -37,7 +35,7 @@ const WeekDay = styled.div`
   height: 100%;
 `;
 
-const DaySymbol = styled.p`
+export const DaySymbol = styled.p`
   font-size: 11px;
   font-weight: 800;
   color: ${baseTheme.colors.text};
@@ -47,7 +45,7 @@ const DaySymbol = styled.p`
   }
 `;
 
-const DayDate = styled.div.attrs((props) => ({
+export const DayDate = styled.div.attrs((props) => ({
   style: {
     backgroundColor: props['data-active'] ? baseTheme.colors.primary : 'transparent',
     color: props['data-active'] ? 'white' : baseTheme.colors.text,
@@ -73,7 +71,7 @@ const DayDate = styled.div.attrs((props) => ({
   }
 `;
 
-const Control = styled.div`
+export const Control = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -86,7 +84,7 @@ const Control = styled.div`
   }
 `;
 
-const Arrow = styled.div`
+export const Arrow = styled.div`
   width: 32px;
   height: 32px;
 
@@ -107,7 +105,7 @@ const Arrow = styled.div`
   }
 `;
 
-const CurrentWeek = styled.p`
+export const CurrentWeek = styled.p`
   font-weight: 500;
 
   
@@ -115,35 +113,3 @@ const CurrentWeek = styled.p`
     font-size: 14px;
   }
 `;
-
-const Week = ({ offset, setOffset, weekDays }) => {
-  function handleNextWeekButtonClick() {
-    setOffset(prev => prev + 1);
-  }
-  
-  function handlePrevWeekButtonClick() {
-    setOffset(prev => prev - 1);
-  }
-
-  return (
-    <Container>
-      <Days>
-        {weekDays.map(day => (
-          <WeekDay key={day.day}>
-            <DaySymbol>{day.symbol}</DaySymbol>
-            <DayDate data-active={offset === 0 && new Date().getDay() === day.day ? 1 : 0}>{day.day}</DayDate>
-          </WeekDay>
-        ))}
-      </Days>
-      <Control>
-        <Arrow onClick={handlePrevWeekButtonClick} />
-        <CurrentWeek>
-          {getMonth(offset)} / w. {getWeekNumber(offset)}
-        </CurrentWeek>
-        <Arrow onClick={handleNextWeekButtonClick} />
-      </Control>
-    </Container>
-  );
-};
-
-export default Week;

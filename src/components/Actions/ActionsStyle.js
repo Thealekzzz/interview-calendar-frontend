@@ -1,8 +1,7 @@
-import React from 'react';
-import { styled } from 'styled-components';
-import { baseTheme } from '../theme';
+import { styled } from "styled-components";
+import { baseTheme } from "../../theme";
 
-const Container = styled.div`
+export const Container = styled.div`
   box-sizing: border-box;
 
   min-height: 80px;
@@ -19,7 +18,7 @@ const Container = styled.div`
   background-color: ${baseTheme.colors.bg};
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   background-color: transparent;
   border: none;
   border-radius: 4px;
@@ -43,17 +42,3 @@ const Button = styled.button`
     background-color: #00000012;
   }
 `;
-
-const Actions = ({ selectedTask, handleDeleteTask }) => {
-  return (
-    <Container>
-      <Button>Today</Button>
-
-      {selectedTask.id && (
-        <Button onClick={handleDeleteTask}>Delete</Button>
-      )}
-    </Container>
-  );
-};
-
-export default Actions;
