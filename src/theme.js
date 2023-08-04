@@ -16,10 +16,19 @@ export const baseTheme = {
 
   sizes: {
     calendar: 740,
-    header: { height: 80 },
-    tooltip: { height: 80, width: 200 },
-    modal: { width: 540 },
     hourHeight: 60,
+
+    header: {
+      height: {
+        default: 100,
+        small: 60,
+      }
+    },
+    
+    tooltip: {
+      height: 80,
+      width: 200,
+    },
   },
 
   transitions: {

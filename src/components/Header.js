@@ -12,8 +12,14 @@ const Container = styled.div`
   background-color: white;
   border-bottom: 1px solid #eaeaea;
 
-  min-height: 100px;
+  min-height: ${baseTheme.sizes.header.height.default}px;
   padding: 0 30px;
+
+  @media ${baseTheme.media.small} {
+    & {
+      min-height: ${baseTheme.sizes.header.height.small}px;
+    }
+  }
 `;
 
 const Title = styled.h1`
