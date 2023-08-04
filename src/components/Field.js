@@ -40,6 +40,14 @@ const Time = styled.div`
   font-size: 14px;
   font-weight: 500;
   color: #aaa;
+
+  @media ${baseTheme.media.small} {
+    & {
+      grid-template-columns: 50px;
+      font-size: 12px;
+
+    }
+  }
 `;
 
 const times = Array(24).fill(0).map((_, index) => `${index < 10 ? '0' : ''}${index}:00`);
