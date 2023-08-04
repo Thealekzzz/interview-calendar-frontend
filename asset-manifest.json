@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/interview-calendar-frontend/static/js/main.ffffd2fd.js",
+    "main.js": "/interview-calendar-frontend/static/js/main.32a02a26.js",
     "index.html": "/interview-calendar-frontend/index.html",
     "static/media/arrow.svg": "/interview-calendar-frontend/static/media/arrow.25520cd1eb88b6c2370c083cb1dd02c4.svg",
     "static/media/add.svg": "/interview-calendar-frontend/static/media/add.4da08cafcc200368483cbede0806f86a.svg",
-    "main.ffffd2fd.js.map": "/interview-calendar-frontend/static/js/main.ffffd2fd.js.map"
+    "main.32a02a26.js.map": "/interview-calendar-frontend/static/js/main.32a02a26.js.map"
   },
   "entrypoints": [
-    "static/js/main.ffffd2fd.js"
+    "static/js/main.32a02a26.js"
   ]
 }
