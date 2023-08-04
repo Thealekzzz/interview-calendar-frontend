@@ -30,6 +30,12 @@ const Calendar = () => {
     setSelectedTask({});
   }
 
+  function handleTodayButtonClick() {
+    setSelectedTask({});
+    setIsTooltipOpen(false);
+    setOffset(0);
+  }
+
   const [offset, setOffset] = useState(0);
   const [weekDays, setWeekDays] = useState(getWeekDays(offset));
 
@@ -64,7 +70,7 @@ const Calendar = () => {
         setHoveredTask={setHoveredTask}
         selectedTask={selectedTask}
       />
-      <Actions selectedTask={selectedTask} handleDeleteTask={handleDeleteTask} />
+      <Actions selectedTask={selectedTask} handleDeleteTask={handleDeleteTask} handleTodayButtonClick={handleTodayButtonClick} />
 
       <AddPopup isOpen={isAddPopupOpen} setIsOpen={setIsAddPopupOpen} onSubmit={handleAddTask} />
       <TaskTooltip isOpen={isTooltipOpen} hoveredTask={hoveredTask} />
