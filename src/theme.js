@@ -24,11 +24,13 @@ export const baseTheme = {
 
   transitions: {
     bgc: 'background-color .2s ease-in-out',
-    opacity: 'opacity .2s ease-in-out',
-    transform: 'transform .2s ease-in-out',
+    opacity: 'opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1)',
+    visibility: 'visibility .3s cubic-bezier(0.075, 0.82, 0.165, 1)',
+    transform: 'transform .3s cubic-bezier(0.075, 0.82, 0.165, 1)',
   },
 
   order: {
+    task: 10,
     header: 50,
     modal: 100,
   },
