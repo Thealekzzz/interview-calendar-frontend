@@ -26,14 +26,23 @@ const Container = styled.div`
 `;
 
 const Calendar = () => {
-  function handleAddTask(values) {
-    values.id = new Date().getTime();
+  function handleAddTask(task) {
+    task.id = new Date().getTime();
     
     setTasks((prev) => {
-      const curr = [...prev, values];
+      const curr = [...prev, task];
       localStorage.setItem('tasks', JSON.stringify(curr));
       return curr;
     });
+  }
+
+  function handleDeleteTask() {
+    setTasks(prev => {
+      const curr = prev.filter((task) => task.id !== selectedTask.id);
+      localStorage.setItem('tasks', JSON.stringify(curr));
+      return curr;
+    });
+    setSelectedTask({});
   }
 
   const [offset, setOffset] = useState(0);
@@ -76,10 +85,11 @@ const Calendar = () => {
         setIsTooltipOpen={setIsTooltipOpen} 
         setSelectedTask={setSelectedTask}
         setHoveredTask={setHoveredTask}
+        selectedTask={selectedTask}
       />
-      <Actions selectedTask={selectedTask}/>
+      <Actions selectedTask={selectedTask} handleDeleteTask={handleDeleteTask} />
 
-      <AddPopup isOpen={isAddPopupOpen} setIsOpen={setIsAddPopupOpen} onSubmit={handleAddTask}/>
+      <AddPopup isOpen={isAddPopupOpen} setIsOpen={setIsAddPopupOpen} onSubmit={handleAddTask} />
       <TaskTooltip isOpen={isTooltipOpen} hoveredTask={hoveredTask} />
 
     </Container>

@@ -44,7 +44,7 @@ const Time = styled.div`
 
 const times = Array(24).fill(0).map((_, index) => `${index < 10 ? '0' : ''}${index}:00`);
 
-const Field = ({ tasksThisWeek, weekDays, setIsTooltipOpen, setSelectedTask, setHoveredTask }) => {
+const Field = ({ tasksThisWeek, weekDays, setIsTooltipOpen, setSelectedTask, setHoveredTask, selectedTask }) => {
   return (
     <Container>
       <Time>
@@ -58,6 +58,7 @@ const Field = ({ tasksThisWeek, weekDays, setIsTooltipOpen, setSelectedTask, set
         setIsTooltipOpen={setIsTooltipOpen} 
         setSelectedTask={setSelectedTask}
         setHoveredTask={setHoveredTask}
+        selectedTask={selectedTask}
       />
     </Container>
   );

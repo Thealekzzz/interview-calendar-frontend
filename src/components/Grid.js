@@ -28,7 +28,13 @@ const VerticallLine = styled.div`
   left: ${(props) => 100 / 7 * props['data-num']}%;
 `;
 
-const Task = styled.div`
+const Task = styled.div.attrs((props) => ({
+  style: {
+    top: props['data-top'],
+    left: `${props['data-left']}%`,
+    backgroundColor: props['data-chosen'] ? '#4488aaff' : '',
+  },
+}))`
   display: flex;
   height: ${baseTheme.sizes.hourHeight}px;
   width: ${100 / 7}%;
@@ -37,8 +43,6 @@ const Task = styled.div`
 
   z-index: 10;
   position: absolute;
-  top: ${(props) => props['data-top']}px;
-  left: ${(props) => props['data-left']}%;
   transform: translateY(${baseTheme.sizes.hourHeight / 2}px) scale(.9);
   
   transition: background-color .2s;
@@ -51,15 +55,16 @@ const Task = styled.div`
   &:active {
     background-color: #4488aacc;
   }
-
-  ${(props) => props['data-chosen'] ? `
-    background-color: #4488aaff;
-
-  ` : ''}
-
 `;
 
-const Grid = ({ tasksThisWeek, weekDays, setIsTooltipOpen, setSelectedTask, setHoveredTask }) => {
+const Grid = ({
+    tasksThisWeek,
+    weekDays,
+    setIsTooltipOpen,
+    setSelectedTask,
+    setHoveredTask,
+    selectedTask,
+  }) => {
   function getTopCoordByTime(time, hourHeight) {
     const hour = time.split(':')[0];
     return hour * hourHeight;
@@ -97,7 +102,7 @@ const Grid = ({ tasksThisWeek, weekDays, setIsTooltipOpen, setSelectedTask, setH
       {tasksThisWeek.map((task) => (
         <Task 
           key={task.id} 
-          data-chosen={false} 
+          data-chosen={selectedTask.id === task.id} 
           data-top={getTopCoordByTime(task.time, baseTheme.sizes.hourHeight)}
           data-left={getLeftCoordByDate(task.date)}
           onMouseEnter={handleMouseEnterTask.bind(task)}
