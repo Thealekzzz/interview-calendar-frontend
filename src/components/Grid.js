@@ -59,7 +59,7 @@ const Task = styled.div`
 
 `;
 
-const Grid = ({ tasksThisWeek, weekDays }) => {
+const Grid = ({ tasksThisWeek, weekDays, setIsTooltipOpen, setSelectedTask, setHoveredTask }) => {
   function getTopCoordByTime(time, hourHeight) {
     const hour = time.split(':')[0];
     return hour * hourHeight;
@@ -69,6 +69,21 @@ const Grid = ({ tasksThisWeek, weekDays }) => {
     const day = date.split('-')[2]
     const dayOfWeek = weekDays.find((weekDay) => weekDay.day === +day)?.dayOfWeek || 0;
     return 100 / 7 * dayOfWeek;
+  }
+
+  function handleMouseEnterTask() {
+    setIsTooltipOpen(true);
+    setHoveredTask(this)
+  }
+
+  function handleMouseLeaveTask() {
+    setIsTooltipOpen(false);
+    setHoveredTask({})
+  }
+
+  function handleTaskClick() {
+    setSelectedTask(this);
+    console.log(this)
   }
 
   return (
@@ -85,6 +100,9 @@ const Grid = ({ tasksThisWeek, weekDays }) => {
           data-chosen={false} 
           data-top={getTopCoordByTime(task.time, baseTheme.sizes.hourHeight)}
           data-left={getLeftCoordByDate(task.date)}
+          onMouseEnter={handleMouseEnterTask.bind(task)}
+          onMouseLeave={handleMouseLeaveTask.bind(task)}
+          onClick={handleTaskClick.bind(task)}
         />
       ))}
     </Container>

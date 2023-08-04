@@ -9,9 +9,10 @@ import Field from './Field';
 import Actions from './Actions';
 import AddPopup from './AddPopup';
 import { getWeekDays } from '../utils/date';
+import TaskTooltip from './TaskTooltip';
 
 const Container = styled.div`
-  max-width: ${baseTheme.sizes.calendar.maxWidth}px;
+  max-width: ${baseTheme.sizes.calendar}px;
   height: 100vh;
   max-height: 100vh;
 
@@ -36,10 +37,15 @@ const Calendar = () => {
   }
 
   const [offset, setOffset] = useState(0);
-  const [isAddPopupOpen, setIsAddPopupOpen] = useState(false);
+  const [weekDays, setWeekDays] = useState(getWeekDays(offset));
+
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || []);
   const [tasksThisWeek, setTasksThisWeek] = useState([]);
-  const [weekDays, setWeekDays] = useState(getWeekDays(offset));
+  const [selectedTask, setSelectedTask] = useState({});
+  const [hoveredTask, setHoveredTask] = useState({});
+
+  const [isAddPopupOpen, setIsAddPopupOpen] = useState(false);
+  const [isTooltipOpen, setIsTooltipOpen] = useState(false);
   
   useEffect(() => {
     console.log(tasksThisWeek);
@@ -64,9 +70,17 @@ const Calendar = () => {
     <Container>
       <Header setIsAddPopupOpen={setIsAddPopupOpen} />
       <Week offset={offset} setOffset={setOffset} weekDays={weekDays} />
-      <Field tasksThisWeek={tasksThisWeek} weekDays={weekDays} />
-      <Actions />
+      <Field 
+        tasksThisWeek={tasksThisWeek} 
+        weekDays={weekDays} 
+        setIsTooltipOpen={setIsTooltipOpen} 
+        setSelectedTask={setSelectedTask}
+        setHoveredTask={setHoveredTask}
+      />
+      <Actions selectedTask={selectedTask}/>
+
       <AddPopup isOpen={isAddPopupOpen} setIsOpen={setIsAddPopupOpen} onSubmit={handleAddTask}/>
+      <TaskTooltip isOpen={isTooltipOpen} hoveredTask={hoveredTask} />
 
     </Container>
   );

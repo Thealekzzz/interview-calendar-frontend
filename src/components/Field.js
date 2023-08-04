@@ -44,7 +44,7 @@ const Time = styled.div`
 
 const times = Array(24).fill(0).map((_, index) => `${index < 10 ? '0' : ''}${index}:00`);
 
-const Field = ({ tasksThisWeek, weekDays }) => {
+const Field = ({ tasksThisWeek, weekDays, setIsTooltipOpen, setSelectedTask, setHoveredTask }) => {
   return (
     <Container>
       <Time>
@@ -52,7 +52,13 @@ const Field = ({ tasksThisWeek, weekDays }) => {
           <p key={time}>{time}</p>
         ))}
       </Time>
-      <Grid tasksThisWeek={tasksThisWeek} weekDays={weekDays} />
+      <Grid 
+        tasksThisWeek={tasksThisWeek} 
+        weekDays={weekDays} 
+        setIsTooltipOpen={setIsTooltipOpen} 
+        setSelectedTask={setSelectedTask}
+        setHoveredTask={setHoveredTask}
+      />
     </Container>
   );
 };
