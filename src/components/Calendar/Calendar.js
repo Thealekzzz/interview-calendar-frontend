@@ -40,14 +40,6 @@ const Calendar = () => {
 
   const [isAddPopupOpen, setIsAddPopupOpen] = useState(false);
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
-  
-  useEffect(() => {
-    console.log(tasksThisWeek);
-  }, [tasksThisWeek]);
-
-  useEffect(() => {
-    console.log(tasks);
-  }, [tasks]);
 
   useEffect(() => {
     setWeekDays(getWeekDays(offset));
