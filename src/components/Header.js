@@ -10,7 +10,7 @@ const Container = styled.div`
   align-items: center;
 
   background-color: white;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid ${baseTheme.colors.border};
 
   min-height: ${baseTheme.sizes.header.height.default}px;
   padding: 0 30px;

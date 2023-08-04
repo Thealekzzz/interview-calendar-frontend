@@ -39,7 +39,7 @@ const Time = styled.div`
 
   font-size: 14px;
   font-weight: 500;
-  color: #aaa;
+  color: ${baseTheme.colors.textMinor};
 
   @media ${baseTheme.media.small} {
     & {

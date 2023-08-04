@@ -16,7 +16,7 @@ const HorizontalLine = styled.div.attrs((props) => ({
   height: 1px;
   width: 100%;
 
-  background-color: #eee;
+  background-color: ${baseTheme.colors.lines};
 
   position: absolute;
 `;
@@ -29,7 +29,7 @@ const VerticallLine = styled.div.attrs((props) => ({
   height: ${baseTheme.sizes.hourHeight * 25}px;
   width: 1px;
   
-  background-color: #eee;
+  background-color: ${baseTheme.colors.lines};
 
   position: absolute;
 `;
@@ -38,14 +38,14 @@ const Task = styled.div.attrs((props) => ({
   style: {
     top: props['data-top'],
     left: `${props['data-left']}%`,
-    backgroundColor: props['data-chosen'] ? '#4488aaff' : '',
+    backgroundColor: props['data-chosen'] ? `${baseTheme.colors.task}ff` : '',
   },
 }))`
   display: flex;
   height: ${baseTheme.sizes.hourHeight}px;
   width: ${100 / 7}%;
 
-  background-color: #4488aa66;
+  background-color: ${baseTheme.colors.task}66;
 
   z-index: ${baseTheme.order.task};
   position: absolute;
@@ -55,11 +55,11 @@ const Task = styled.div.attrs((props) => ({
   cursor: pointer;
 
   &:hover {
-    background-color: #4488aa88;
+    background-color: ${baseTheme.colors.task}88;
   }
 
   &:active {
-    background-color: #4488aacc;
+    background-color: ${baseTheme.colors.task }cc;
   }
 `;
 

@@ -16,7 +16,7 @@ const Container = styled.div`
   height: 100vh;
   max-height: 100vh;
 
-  background-color: #fafafa;
+  background-color: ${baseTheme.colors.bg};
 
   display: flex;
   flex-direction: column;

@@ -73,17 +73,17 @@ const Input = styled.input`
   padding: 10px;
 
   border-radius: 3px;
-  border: 2px solid #aaa;
+  border: 2px solid #ccc;
   
   outline: none;
 
   &:focus {
-    border-color: #3355DD;
+    border-color: ${baseTheme.colors.accent};
   }
 `;
 
 const Button = styled.button`
-  background-color: #F13939dd;
+  background-color: ${baseTheme.colors.primary}dd;
   padding: 10px 20px;
 
   font-weight: bold;
@@ -99,7 +99,7 @@ const Button = styled.button`
   transition: background-color .2s;
 
   &:hover {
-    background-color: #F13939ff;
+    background-color: ${baseTheme.colors.primary};
 
   }
 

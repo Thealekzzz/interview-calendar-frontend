@@ -1,12 +1,15 @@
 export const baseTheme = {
   colors: {
-    primary: '#7986cb',
-    secondary: '#2b2b2b',
-    success: '#4caf50',
-    danger: '#f44336 ',
+    primary: '#f13939',
+    accent: '#3355DD',
+    task: '#4488aa',
+    border: '#eaeaea',
 
-    bg: '#E5E4E8',
-    font: '#19191B',
+    text: '#2d2d2d',
+    textMinor: '#cdcdcd',
+
+    lines: '#efefef',
+    bg: '#fafafa',
   },
 
   media: {

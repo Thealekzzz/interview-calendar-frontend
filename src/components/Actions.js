@@ -14,9 +14,9 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid ${baseTheme.colors.border};
 
-  background-color: #fafafa;
+  background-color: ${baseTheme.colors.bg};
 `;
 
 const Button = styled.button`
@@ -29,7 +29,7 @@ const Button = styled.button`
   font-family: inherit;
   font-size: 20px;
   font-weight: 500;
-  color: #F13939;
+  color: ${baseTheme.colors.primary};
 
   cursor: pointer;
 
