@@ -1,8 +1,14 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { useFormAndValidation } from '../hooks/useFormAndValidation';
+import { baseTheme } from '../theme';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div.attrs((props) => ({
+  style: {
+    opacity: props.open ? 1 : 0,
+    visibility: props.open ? 'visible' : 'hidden',
+  }
+}))`
   position: absolute;
   top: 0;
   bottom: 0;
@@ -14,21 +20,19 @@ const Wrapper = styled.div`
   align-items: center;
 
   background-color: #00000080;
-  
-  opacity: 1;
-  visibility: visible;
+
+  z-index: ${baseTheme.order.modal};
   
   transition: 
-    opacity .4s cubic-bezier(0.075, 0.82, 0.165, 1), 
-    visibility .4s cubic-bezier(0.075, 0.82, 0.165, 1);
-
-  ${(props) => !props.open ? `
-    opacity: 0;
-    visibility: hidden;
-  ` : ''}
+    ${baseTheme.transitions.opacity},
+    ${baseTheme.transitions.visibility};
 `;
 
-const Popup = styled.div`
+const Popup = styled.div.attrs((props) => ({
+  style: {
+    transform: props.open ? 'translate(0)' : 'translateY(10px)',
+  }
+}))`
   box-sizing: border-box;
 
   display: flex;
@@ -45,13 +49,7 @@ const Popup = styled.div`
   border-radius: 10px;
   background-color: white;
 
-  transform: translate(0);
-
-  transition: transform .4s cubic-bezier(0.075, 0.82, 0.165, 1);
-  
-  ${(props) => !props.open ? `
-    transform: translateY(10px);
-  ` : ''}
+  transition: ${baseTheme.transitions.transform};
 `;
 
 const Inputs = styled.div`

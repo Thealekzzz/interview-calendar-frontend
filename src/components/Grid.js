@@ -8,24 +8,30 @@ const Container = styled.div`
   position: relative;
 `;
 
-const HorizontalLine = styled.div`
+const HorizontalLine = styled.div.attrs((props) => ({
+  style: {
+    top: baseTheme.sizes.hourHeight * props['data-num'] + baseTheme.sizes.hourHeight / 2,
+  }
+}))`
   height: 1px;
   width: 100%;
 
   background-color: #eee;
 
   position: absolute;
-  top: ${(props) => baseTheme.sizes.hourHeight * props['data-num'] + baseTheme.sizes.hourHeight / 2}px;
 `;
 
-const VerticallLine = styled.div`
+const VerticallLine = styled.div.attrs((props) => ({
+  style: {
+    left: 100 / 7 * props['data-num'] + '%',
+  }
+}))`
   height: ${baseTheme.sizes.hourHeight * 25}px;
   width: 1px;
   
   background-color: #eee;
 
   position: absolute;
-  left: ${(props) => 100 / 7 * props['data-num']}%;
 `;
 
 const Task = styled.div.attrs((props) => ({
@@ -41,7 +47,7 @@ const Task = styled.div.attrs((props) => ({
 
   background-color: #4488aa66;
 
-  z-index: 10;
+  z-index: ${baseTheme.order.task};
   position: absolute;
   transform: translateY(${baseTheme.sizes.hourHeight / 2}px) scale(.9);
   
@@ -78,17 +84,17 @@ const Grid = ({
 
   function handleMouseEnterTask() {
     setIsTooltipOpen(true);
-    setHoveredTask(this)
+    setHoveredTask(this);
   }
 
   function handleMouseLeaveTask() {
     setIsTooltipOpen(false);
-    setHoveredTask({})
+    setHoveredTask({});
   }
 
   function handleTaskClick() {
     setSelectedTask(this);
-    console.log(this)
+    setHoveredTask(this);
   }
 
   return (

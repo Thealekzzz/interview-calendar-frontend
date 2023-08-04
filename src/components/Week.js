@@ -20,6 +20,13 @@ const Days = styled.div`
   margin: 10px 0 5px;
   padding-left: 100px;
   height: 56px;
+
+  @media ${baseTheme.media.small} {
+    & {
+      padding-left: 50px;
+
+    }
+  }
 `;
 
 const WeekDay = styled.div`
@@ -40,10 +47,14 @@ const DaySymbol = styled.p`
   }
 `;
 
-const DayDate = styled.div`
+const DayDate = styled.div.attrs((props) => ({
+  style: {
+    backgroundColor: props['data-active'] ? '#F13939' : 'transparent',
+    color: props['data-active'] ? 'white' : '#444',
+  }
+}))`
   font-size: 20px;
   font-weight: 400;
-  color: #444;
   
   height: 32px;
   width: 32px;
@@ -51,6 +62,8 @@ const DayDate = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  border-radius: 50%;
 
   @media ${baseTheme.media.small} {
     height: 28px;
@@ -58,13 +71,6 @@ const DayDate = styled.div`
     
     font-size: 16px;
   }
-
-  ${(props) => props['data-active'] && `
-    background-color: #F13939;
-
-    border-radius: 50%;
-    color: white;
-  `}
 `;
 
 const Control = styled.div`
@@ -76,7 +82,7 @@ const Control = styled.div`
   margin-bottom: 15px;
   
   @media ${baseTheme.media.small} {
-    padding: 0 10px 0 100px;
+    padding: 0 10px;
   }
 `;
 
