@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/static/js/main.fa41cecf.js",
-    "index.html": "/index.html",
-    "static/media/arrow.svg": "/static/media/arrow.25520cd1eb88b6c2370c083cb1dd02c4.svg",
-    "static/media/add.svg": "/static/media/add.4da08cafcc200368483cbede0806f86a.svg",
-    "main.fa41cecf.js.map": "/static/js/main.fa41cecf.js.map"
+    "main.js": "/interview-calendar-frontend/static/js/main.ffffd2fd.js",
+    "index.html": "/interview-calendar-frontend/index.html",
+    "static/media/arrow.svg": "/interview-calendar-frontend/static/media/arrow.25520cd1eb88b6c2370c083cb1dd02c4.svg",
+    "static/media/add.svg": "/interview-calendar-frontend/static/media/add.4da08cafcc200368483cbede0806f86a.svg",
+    "main.ffffd2fd.js.map": "/interview-calendar-frontend/static/js/main.ffffd2fd.js.map"
   },
   "entrypoints": [
-    "static/js/main.fa41cecf.js"
+    "static/js/main.ffffd2fd.js"
   ]
 }
