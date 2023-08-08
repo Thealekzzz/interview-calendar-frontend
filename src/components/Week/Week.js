@@ -18,7 +18,7 @@ const Week = ({ offset, setOffset, weekDays }) => {
         {weekDays.map(day => (
           <WeekDay key={day.day}>
             <DaySymbol>{day.symbol}</DaySymbol>
-            <DayDate data-active={offset === 0 && new Date().getDay() === day.day ? 1 : 0}>{day.day}</DayDate>
+            <DayDate data-active={offset === 0 && new Date().getDate() === day.day ? 1 : 0}>{day.day}</DayDate>
           </WeekDay>
         ))}
       </Days>
